@@ -13,7 +13,11 @@ const MovieGrid = () => {
       {error && <p>{error}</p>}
       <Grid container spacing={2}>
         {isLoading &&
-          skeletons.map((skeleton) => <MovieCardSkeleton key={skeleton} />)}
+          skeletons.map((skeleton) => (
+            <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
+              <MovieCardSkeleton key={skeleton} />
+            </Grid>
+          ))}
 
         {movies.map((movie) => (
           <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3} xl={2}>
