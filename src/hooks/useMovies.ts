@@ -1,6 +1,4 @@
-import { CanceledError } from 'axios'
-import { useEffect, useState } from 'react'
-import apiClient from '../services/apiClient'
+import useData from './useData'
 
 interface Genre {
   genre_ids: number
@@ -23,40 +21,6 @@ export interface Movie {
   vote_count: number
 }
 
-interface FetchMovieRespose {
-  page: number
-  results: Movie[]
-  total_pages: number
-  total_results: number
-}
-
-const useMovies = () => {
-  const [movies, setMovies] = useState<Movie[]>([])
-  const [error, setError] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
-
-  useEffect(() => {
-    const controller = new AbortController()
-
-    setIsLoading(true)
-    apiClient
-      .get<FetchMovieRespose>('/popular', {
-        signal: controller.signal,
-      })
-      .then((res) => {
-        setMovies(res.data.results)
-        setIsLoading(false)
-      })
-      .catch((err) => {
-        if (err instanceof CanceledError) return
-        setError(err.message)
-        setIsLoading(false)
-      })
-
-    return () => controller.abort()
-  }, [])
-
-  return { movies, error, isLoading }
-}
+const useMovies = () => useData<Movie>('/popular')
 
 export default useMovies
