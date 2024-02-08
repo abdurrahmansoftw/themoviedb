@@ -2,10 +2,11 @@ import { Box, Grid } from '@mui/material'
 import MovieCard from '../components/MovieCard'
 import MovieCardContainer from '../components/MovieCardContainer'
 import MovieCardSkeleton from '../components/skeleton/MovieCardSkeleton'
-import useMovies from '../hooks/useMovies'
+import useData from '../hooks/useData'
+import { Movie } from '../hooks/useMovies'
 
 const MovieGrid = () => {
-  const { movies, error, isLoading } = useMovies()
+  const { data, error, isLoading } = useData<Movie>('/popular')
 
   const skeletons = [1, 2, 3, 4, 5, 6]
 
@@ -22,7 +23,7 @@ const MovieGrid = () => {
             </Grid>
           ))}
 
-        {movies.map((movie) => (
+        {data.map((movie) => (
           <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3} xl={2}>
             <MovieCardContainer>
               <MovieCard movie={movie} />
