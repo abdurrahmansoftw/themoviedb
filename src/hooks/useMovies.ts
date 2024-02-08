@@ -33,6 +33,7 @@ interface FetchMovieRespose {
 const useMovies = () => {
   const [movies, setMovies] = useState<Movie[]>([])
   const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const controller = new AbortController()
