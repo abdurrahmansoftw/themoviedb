@@ -1,6 +1,5 @@
 import { CanceledError } from 'axios'
 import { useEffect, useState } from 'react'
-import { Movie } from '../layouts/MovieGrid'
 import apiClient from '../services/apiClient'
 
 interface Genre {

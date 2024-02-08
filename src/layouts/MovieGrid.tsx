@@ -4,7 +4,7 @@ import useMovies from '../hooks/useMovies'
 
 const MovieGrid = () => {
   const { movies, error } = useMovies()
-  
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>

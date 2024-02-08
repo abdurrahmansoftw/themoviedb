@@ -1,6 +1,6 @@
 import { Card, CardContent, CardMedia, Typography } from '@mui/material'
 import styled from 'styled-components'
-import { Movie } from '../layouts/MovieGrid'
+import { Movie } from '../hooks/useMovies'
 
 const ModernCard = styled(Card)({
   borderRadius: 16,
@@ -29,7 +29,10 @@ interface Props {
 const MovieCard = ({ movie }: Props) => {
   return (
     <ModernCard elevation={0}>
-      <ModernCardMedia image={movie.poster_path} />
+      <ModernCardMedia
+        image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+      />
+
       <ModernCardContent>
         <Typography gutterBottom variant='h6'>
           {movie.title}
