@@ -1,4 +1,5 @@
 import AdbIcon from '@mui/icons-material/Adb'
+import MenuIcon from '@mui/icons-material/Menu'
 import {
   AppBar,
   Avatar,
@@ -13,7 +14,6 @@ import {
   Typography,
 } from '@mui/material'
 import { MouseEvent, useState } from 'react'
-import MenuIcon from '@mui/icons-material/Menu'
 
 const pages = ['Movie', 'Tv Show', 'People', 'More']
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
@@ -48,7 +48,7 @@ const Navbar = () => {
             variant='h6'
             noWrap
             component='a'
-            href='#app-bar-with-responsive-menu'
+            href='#'
             sx={{
               mr: 2,
               display: { xs: 'none', sm: 'flex' },
@@ -106,7 +106,7 @@ const Navbar = () => {
             variant='h5'
             noWrap
             component='a'
-            href='#app-bar-with-responsive-menu'
+            href='#'
             sx={{
               mr: 2,
               display: { xs: 'flex', sm: 'none' },
