@@ -6,7 +6,6 @@ const App = () => {
   return (
     <div>
       <Navbar />
-
       <Container className='my-5 '>
         <MovieGrid />
       </Container>
