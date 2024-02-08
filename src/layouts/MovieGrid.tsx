@@ -3,10 +3,14 @@ import { useEffect, useState } from 'react'
 import MovieCard from '../components/MovieCard'
 import apiClient from '../services/apiClient'
 
+interface Genre {
+  genre_ids: number
+}
+
 export interface Movie {
   adult: boolean
   backdrop_path: string
-  genre_ids: number[]
+  genre_ids: Genre[]
   id: number
   original_language: string
   original_title: string
