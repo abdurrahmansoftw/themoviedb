@@ -1,9 +1,9 @@
-import Navbar from './components/Navbar'
+import MovieGrid from './layouts/MovieGrid'
 
 const App = () => {
   return (
     <div>
-      <Navbar />
+      <MovieGrid />
     </div>
   )
 }
