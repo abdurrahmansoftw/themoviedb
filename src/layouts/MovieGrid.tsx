@@ -1,4 +1,4 @@
-import { Box, Grid } from '@mui/material'
+import { Box, Grid, Typography } from '@mui/material'
 import MovieCard from '../components/MovieCard'
 import MovieCardContainer from '../components/MovieCardContainer'
 import MovieCardSkeleton from '../components/skeleton/MovieCardSkeleton'
@@ -9,9 +9,15 @@ const MovieGrid = () => {
 
   const skeletons = [1, 2, 3, 4, 5, 6]
 
+  if (error)
+    return (
+      <Typography variant='body1' component='p'>
+        {error}
+      </Typography>
+    )
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      {error && <p>{error}</p>}
       <Grid container spacing={2}>
         {isLoading &&
           skeletons.map((skeleton) => (
