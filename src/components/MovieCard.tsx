@@ -29,7 +29,7 @@ interface Props {
 const MovieCard = ({ movie }: Props) => {
   return (
     <ModernCard elevation={0}>
-      <ModernCardMedia image={movie.backdrop_path} />
+      <ModernCardMedia image={movie.poster_path} />
       <ModernCardContent>
         <Typography gutterBottom variant='h6'>
           {movie.title}
