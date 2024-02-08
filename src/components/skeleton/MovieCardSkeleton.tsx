@@ -35,17 +35,22 @@ const MovieCardSkeleton = () => {
     <ModernCard>
       <CardActionArea>
         <ModernCardMedia>
-          <Skeleton />
+          <Skeleton
+            variant='rectangular'
+            animation='wave'
+            width='100%'
+            height='100%'
+          />
         </ModernCardMedia>
         <ModernCardContent>
-          <Typography>
-            <Skeleton />
+          <Typography gutterBottom variant='h6' component='h6'>
+            <Skeleton animation='wave' />
           </Typography>
         </ModernCardContent>
       </CardActionArea>
       <CardActions>
-        <Button>
-          <Skeleton />
+        <Button size='small' color='primary'>
+          <Skeleton animation='wave' width={80} />
         </Button>
       </CardActions>
     </ModernCard>
