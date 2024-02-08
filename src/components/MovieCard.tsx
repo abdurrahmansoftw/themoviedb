@@ -37,7 +37,7 @@ const MovieCard = ({ movie }: Props) => {
         <Typography gutterBottom variant='h6'>
           {movie.title}
         </Typography>
-        <Typography>{movie.overview}</Typography>
+        <Typography>{movie.release_date}</Typography>
       </ModernCardContent>
     </ModernCard>
   )
