@@ -1,4 +1,4 @@
-import { Theme, ThemePanel } from '@radix-ui/themes'
+import { Theme } from '@radix-ui/themes'
 import '@radix-ui/themes/styles.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       scaling='90%'
     >
       <App />
-      <ThemePanel />
+      {/* <ThemePanel /> */}
     </Theme>
   </React.StrictMode>
 )
