@@ -38,10 +38,13 @@ const Navbar = () => {
     setAnchorElUser(null)
   }
   return (
-    <AppBar position='static'>
+    <AppBar position='static' elevation={0}>
       <Container maxWidth='xl'>
-        <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', sm: 'flex' }, mr: 1 }} />
+        <Toolbar disableGutters variant='dense'>
+          <AdbIcon
+            fontSize='small'
+            sx={{ display: { xs: 'none', sm: 'flex' }, mr: 1 }}
+          />
           <Typography
             variant='h6'
             noWrap
@@ -69,7 +72,7 @@ const Navbar = () => {
               onClick={handleOpenNavMenu}
               color='inherit'
             >
-              <MenuIcon />
+              <MenuIcon fontSize='small' />
             </IconButton>
             <Menu
               id='menu-appbar'
@@ -96,7 +99,10 @@ const Navbar = () => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', sm: 'none' }, mr: 1 }} />
+          <AdbIcon
+            fontSize='small'
+            sx={{ display: { xs: 'flex', sm: 'none' }, mr: 1 }}
+          />
           <Typography
             variant='h5'
             noWrap
@@ -130,7 +136,7 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title='Open settings'>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt='Remy Sharp' src='/static/images/avatar/2.jpg' />
+                <Avatar alt='Remy Sharp' src='g' />
               </IconButton>
             </Tooltip>
             <Menu
