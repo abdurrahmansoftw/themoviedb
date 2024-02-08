@@ -1,4 +1,12 @@
-import { Card, CardContent, CardMedia, Typography } from '@mui/material'
+import {
+  Button,
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Typography,
+} from '@mui/material'
 import styled from 'styled-components'
 import { Movie } from '../hooks/useMovies'
 
@@ -28,17 +36,22 @@ interface Props {
 
 const MovieCard = ({ movie }: Props) => {
   return (
-    <ModernCard elevation={0}>
-      <ModernCardMedia
-        image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-      />
-
-      <ModernCardContent>
-        <Typography gutterBottom variant='h6'>
-          {movie.title}
-        </Typography>
-        <Typography>{movie.release_date}</Typography>
-      </ModernCardContent>
+    <ModernCard>
+      <CardActionArea>
+        <ModernCardMedia
+          image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+        />
+        <ModernCardContent>
+          <Typography gutterBottom variant='h6' component='h6'>
+            {movie.title}
+          </Typography>
+        </ModernCardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size='small' color='primary'>
+          {movie.release_date}
+        </Button>
+      </CardActions>
     </ModernCard>
   )
 }
