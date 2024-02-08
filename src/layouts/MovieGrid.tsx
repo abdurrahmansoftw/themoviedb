@@ -1,9 +1,14 @@
+import { Box, Grid } from '@mui/material'
 import { useEffect, useState } from 'react'
+import MovieCard from '../components/MovieCard'
 import apiClient from '../services/apiClient'
 
-interface Movie {
+export interface Movie {
   id: number
-  original_title: string
+  title: string
+  backdrop_path: string
+  poster_path: string
+  overview: string
 }
 
 interface FetchMovieRespose {
@@ -20,18 +25,20 @@ const MovieGrid = () => {
   useEffect(() => {
     apiClient
       .get<FetchMovieRespose>('/popular')
-      .then((res) => res.data.results)
+      .then((res) => setMovies(res.data.results))
       .catch((err) => setError(err.message))
   }, [])
 
   return (
-    <div>
-      <ul>
+    <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2}>
         {movies.map((movie) => (
-          <li key={movie.id}>{movie.original_title}</li>
+          <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3} xl={2}>
+            <MovieCard movie={movie}>{movie.title}</MovieCard>
+          </Grid>
         ))}
-      </ul>
-    </div>
+      </Grid>
+    </Box>
   )
 }
 
