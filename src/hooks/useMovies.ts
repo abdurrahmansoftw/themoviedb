@@ -43,7 +43,8 @@ const useMovies = () => {
       })
       .then((res) => setMovies(res.data.results))
       .catch((err) => {
-        if (err instanceof CanceledError) setError(err.message)
+        if (err instanceof CanceledError) return
+        setError(err.message)
       })
 
     return () => controller.abort()

@@ -7,6 +7,7 @@ const MovieGrid = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
+      {error && <p>{error}</p>}
       <Grid container spacing={2}>
         {movies.map((movie) => (
           <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3} xl={2}>
