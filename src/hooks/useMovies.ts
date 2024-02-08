@@ -1,3 +1,4 @@
+import { CanceledError } from 'axios'
 import { useEffect, useState } from 'react'
 import { Movie } from '../layouts/MovieGrid'
 import apiClient from '../services/apiClient'
@@ -35,10 +36,18 @@ const useMovies = () => {
   const [error, setError] = useState('')
 
   useEffect(() => {
+    const controller = new AbortController()
+
     apiClient
-      .get<FetchMovieRespose>('/popular')
+      .get<FetchMovieRespose>('/popular', {
+        signal: controller.signal,
+      })
       .then((res) => setMovies(res.data.results))
-      .catch((err) => setError(err.message))
+      .catch((err) => {
+        if (err instanceof CanceledError) setError(err.message)
+      })
+
+    return () => controller.abort()
   }, [])
 
   return { movies, error }
