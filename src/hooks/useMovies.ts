@@ -33,25 +33,30 @@ interface FetchMovieRespose {
 const useMovies = () => {
   const [movies, setMovies] = useState<Movie[]>([])
   const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     const controller = new AbortController()
 
+    setIsLoading(true)
     apiClient
       .get<FetchMovieRespose>('/popular', {
         signal: controller.signal,
       })
-      .then((res) => setMovies(res.data.results))
+      .then((res) => {
+        setMovies(res.data.results)
+        setIsLoading(false)
+      })
       .catch((err) => {
         if (err instanceof CanceledError) return
         setError(err.message)
+        setIsLoading(false)
       })
 
     return () => controller.abort()
   }, [])
 
-  return { movies, error }
+  return { movies, error, isLoading }
 }
 
 export default useMovies
