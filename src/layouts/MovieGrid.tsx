@@ -1,5 +1,6 @@
 import { Box, Grid } from '@mui/material'
 import MovieCard from '../components/MovieCard'
+import MovieCardContainer from '../components/MovieCardContainer'
 import MovieCardSkeleton from '../components/skeleton/MovieCardSkeleton'
 import useMovies from '../hooks/useMovies'
 
@@ -15,13 +16,17 @@ const MovieGrid = () => {
         {isLoading &&
           skeletons.map((skeleton) => (
             <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
-              <MovieCardSkeleton key={skeleton} />
+              <MovieCardContainer>
+                <MovieCardSkeleton key={skeleton} />
+              </MovieCardContainer>
             </Grid>
           ))}
 
         {movies.map((movie) => (
           <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3} xl={2}>
-            <MovieCard movie={movie} />
+            <MovieCardContainer>
+              <MovieCard movie={movie} />
+            </MovieCardContainer>
           </Grid>
         ))}
       </Grid>

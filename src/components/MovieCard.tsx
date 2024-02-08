@@ -36,7 +36,7 @@ interface Props {
 
 const MovieCard = ({ movie }: Props) => {
   return (
-    <ModernCard sx={{ overflow: 'hidden' }}>
+    <ModernCard>
       <CardActionArea>
         <ModernCardMedia
           image={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
