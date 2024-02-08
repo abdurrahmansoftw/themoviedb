@@ -13,7 +13,6 @@ import {
   Typography,
 } from '@mui/material'
 import { MouseEvent, useState } from 'react'
-
 import MenuIcon from '@mui/icons-material/Menu'
 
 const pages = ['Movie', 'Tv Show', 'People', 'More']
