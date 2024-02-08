@@ -39,7 +39,7 @@ const MovieCard = ({ movie }: Props) => {
     <ModernCard>
       <CardActionArea>
         <ModernCardMedia
-          image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          image={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
         />
         <ModernCardContent>
           <Typography gutterBottom variant='h6' component='h6'>
